@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reto 3 de programación</title>
+    <style>
+        body {
+    font-family: Helvetica, sans-serif;
+    background-color: #ffffff;
+    color:rgb(1, 9, 170);
+    text-align: flex-start;
+    padding: 20px;
+}
+        .contenedor {
+            display: flex;
+            justify-content: flex-start;
+            gap: 50px;
+            margin-bottom: 20px;
+        }
+
+        .columna {
+            width: 200px;
+        }
+
+        label, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Comparando promedios</h1>
+
+    <div class="contenedor">
+        <div class="columna">
+            <h2>Delfines</h2>
+            <img src="imagenes reto/delfin.png">
+            <label for="delfines1">Primer Puntaje:</label>
+            <input type="number" id="delfines1">
+            <label for="delfines2">Segundo Puntaje:</label>
+            <input type="number" id="delfines2">
+            <label for="delfines3">Tercer Puntaje:</label>
+            <input type="number" id="delfines3">
+        </div>
+
+        <div class="columna">
+            <h2>Koalas</h2>
+            <img src="imagenes reto/koala.png">
+            <label for="koalas1">Primer Puntaje:</label>
+            <input type="number" id="koalas1">
+            <label for="koalas2">Segundo Puntaje:</label>
+            <input type="number" id="koalas2">
+            <label for="koalas3">Tercer Puntaje:</label>
+            <input type="number" id="koalas3">
+        </div>
+    </div>
+
+    <button onclick="compararPuntajes()">Ver Resultado</button>
+
+    <script> 
+        function compararPuntajes() {
+            const scoredolphins = (
+                parseInt(document.getElementById('delfines1').value) + 
+                parseInt(document.getElementById('delfines2').value) + 
+                parseInt(document.getElementById('delfines3').value)
+            ) / 3;
+
+            const scorekoalas = (
+                parseInt(document.getElementById('koalas1').value) + 
+                parseInt(document.getElementById('koalas2').value) + 
+                parseInt(document.getElementById('koalas3').value)
+            ) / 3;
+
+            if (scoredolphins > scorekoalas && scoredolphins >= 100) {
+                alert('Delfines ganan');
+            } else if (scorekoalas > scoredolphins && scorekoalas >= 100) {
+                alert('Koalas ganan');
+            } else if (scorekoalas === scoredolphins && scoredolphins >= 100) {
+                alert('Empataron');
+            } else {
+                alert('Nadie gana el trofeo');
+            }
+        }
+    </script>
+</body>
+</html>
